@@ -19,7 +19,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
   try {
-    const user = await Users.findBy({ username })
+    const user = await Users.findBy({ username }).first()
     if (user && bc.compareSync(password, user.password)) {
       const token = generateToken(user)
       res.status(200).json({
