@@ -34,8 +34,8 @@ describe('Auth router', () => {
       const res = await req(server)
         .post("/api/auth/register")
         .send({ username: 'test', password: 'test' });
-      // console.log(res)
-      expect(res.body.token)
+      // console.log(res.body)
+      expect(res.body.token);
     });
   });
 
@@ -74,4 +74,4 @@ describe('Auth router', () => {
       expect(res.body.message).toBe('Welcome test')
     });
   });
-});
+})
